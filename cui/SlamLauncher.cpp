@@ -160,7 +160,7 @@ void SlamLauncher::customizeFramework() {
   //  fcustom.customizeG();                         // 退化の対処をしない
   //  fcustom.customizeH();                         // 退化の対処をする
   //  fcustom.customizeI();                         // ループ閉じ込みをする
-  fcustom.customizeA();
+  // fcustom.customizeA();
 
   pcmap = fcustom.getPointCloudMap();           // customizeの後にやること
 }

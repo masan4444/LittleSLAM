@@ -7,7 +7,7 @@ find_package(Boost REQUIRED)
 find_package(Eigen3)
 IF(NOT EIGEN3_INCLUDE_DIR)
   set(EIGEN3_INCLUDE_DIR $ENV{EIGEN3_ROOT_DIR})
-ENDIF() 
+ENDIF()
 
 SET(hk_HDRS
     RefScanMakerBS.h
@@ -22,9 +22,11 @@ SET(hk_HDRS
     PointCloudMapGT.h
     PointCloudMapLP.h
     LoopDetectorSS.h
+
+    CostFunctionEDM.h
 )
 
-SET(hk_SRCS 
+SET(hk_SRCS
     RefScanMakerBS.cpp
     RefScanMakerLM.cpp
     CostFunctionED.cpp
@@ -37,6 +39,8 @@ SET(hk_SRCS
     PointCloudMapGT.cpp
     PointCloudMapLP.cpp
     LoopDetectorSS.cpp
+
+    CostFunctionEDM.cpp
 )
 
 include_directories(
@@ -51,4 +55,3 @@ link_directories(
 ADD_LIBRARY(hook ${hk_SRCS} ${hk_HDRS})
 
 target_link_libraries(hook framework)
-

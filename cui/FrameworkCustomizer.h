@@ -42,6 +42,8 @@
 #include "ScanMatcher2D.h"
 #include "SlamFrontEnd.h"
 
+#include "CostFunctionEDM.h"
+
 class FrameworkCustomizer
 {
   // フレームワーク改造用の部品
@@ -61,6 +63,8 @@ class FrameworkCustomizer
   LoopDetectorSS lpdSS;
   ScanPointResampler spres;
   ScanPointAnalyser spana;
+
+  CostFunctionEDM cfuncEDM;
 
   PoseEstimatorICP poest;
   PoseFuser pfu;
