@@ -24,7 +24,7 @@ using namespace std;                       // C++標準ライブラリの名前�
 void SlamLauncher::run() {
   mdrawer.initGnuplot();                   // gnuplot初期化
   mdrawer.setAspectRatio(-0.9);            // x軸とy軸の比（負にすると中身が一定）
-  
+
   size_t cnt = 0;                          // 処理の論理時刻
   if (startN > 0)
     skipData(startN);                      // startNまでデータを読み飛ばす
@@ -41,7 +41,7 @@ void SlamLauncher::run() {
       }
       mapByOdometry(&scan);
     }
-    else 
+    else
       sfront.process(scan);                // SLAMによる地図構築
 
     double t1 = 1000*tim.elapsed();
@@ -125,7 +125,7 @@ void SlamLauncher::showScans() {
   bool eof = sreader.loadScan(cnt, scan);
   while(!eof) {
 //    spres.resamplePoints(&scan);         // コメントアウトはずせば、スキャン点間隔を均一にする。
- 
+
     // 描画間隔をあける
 #ifdef _WIN32
     Sleep(100);                            // WindowsではSleep
@@ -156,9 +156,11 @@ bool SlamLauncher::setFilename(char *filename) {
 void SlamLauncher::customizeFramework() {
   fcustom.setSlamFrontEnd(&sfront);
   fcustom.makeFramework();
-//  fcustom.customizeG();                         // 退化の対処をしない
-//  fcustom.customizeH();                         // 退化の対処をする
-  fcustom.customizeI();                           // ループ閉じ込みをする
+  fcustom.customizeMitchel(false, false);
+  //  fcustom.customizeG();                         // 退化の対処をしない
+  //  fcustom.customizeH();                         // 退化の対処をする
+  //  fcustom.customizeI();                         // ループ閉じ込みをする
+  fcustom.customizeA();
 
   pcmap = fcustom.getPointCloudMap();           // customizeの後にやること
 }

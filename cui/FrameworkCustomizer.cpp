@@ -221,3 +221,27 @@ void FrameworkCustomizer::customizeI() {
   sfront->setPointCloudMap(pcmap);
   sfront->setDgCheck(true);                        // センサ融合する
 }
+
+// ミッチェル乗算を適用
+void FrameworkCustomizer::customizeMitchel(bool usePerpendicularDistance, bool usePointResampler) {
+  pcmap = &pcmapGT;                                // 格子テーブルで管理する点群地図
+  RefScanMaker *rsm = &rsmLM;                      // 局所地図を参照スキャンとする
+  DataAssociator *dass = &dassGT;                  // 格子テーブルによるデータ対応づけ
+  CostFunction *cfunc = usePerpendicularDistance ?
+    (CostFunction*)&cfuncED : (CostFunction*)&cfuncPD;
+  PoseOptimizer *popt = &poptSD;                   // 最急降下法による最適化
+  LoopDetector *lpd = &lpdDM;                      // ダミーのループ検出
+
+  popt->setCostFunction(cfunc);
+  poest.setDataAssociator(dass);
+  poest.setPoseOptimizer(popt);
+  pfu.setDataAssociator(dass);
+  smat.setPointCloudMap(pcmap);
+  smat.setRefScanMaker(rsm);
+  if (usePointResampler) {
+    smat.setScanPointResampler(&spres);              // スキャン点間隔均一化
+  }
+  sfront->setLoopDetector(lpd);
+  sfront->setPointCloudMap(pcmap);
+  sfront->setDgCheck(false);                       // センサ融合しない
+}

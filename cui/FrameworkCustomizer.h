@@ -17,30 +17,30 @@
 
 #include <vector>
 #include "MyUtil.h"
-#include "RefScanMaker.h" 
-#include "RefScanMakerBS.h" 
-#include "RefScanMakerLM.h" 
-#include "DataAssociator.h" 
-#include "DataAssociatorLS.h" 
-#include "DataAssociatorGT.h" 
-#include "CostFunction.h" 
-#include "CostFunctionED.h" 
-#include "CostFunctionPD.h" 
-#include "PoseOptimizer.h" 
-#include "PoseOptimizerSD.h" 
-#include "PoseOptimizerSL.h" 
-#include "PointCloudMap.h" 
-#include "PointCloudMapBS.h" 
-#include "PointCloudMapGT.h" 
-#include "PointCloudMapLP.h" 
-#include "LoopDetector.h" 
-#include "LoopDetectorSS.h" 
+#include "RefScanMaker.h"
+#include "RefScanMakerBS.h"
+#include "RefScanMakerLM.h"
+#include "DataAssociator.h"
+#include "DataAssociatorLS.h"
+#include "DataAssociatorGT.h"
+#include "CostFunction.h"
+#include "CostFunctionED.h"
+#include "CostFunctionPD.h"
+#include "PoseOptimizer.h"
+#include "PoseOptimizerSD.h"
+#include "PoseOptimizerSL.h"
+#include "PointCloudMap.h"
+#include "PointCloudMapBS.h"
+#include "PointCloudMapGT.h"
+#include "PointCloudMapLP.h"
+#include "LoopDetector.h"
+#include "LoopDetectorSS.h"
 #include "ScanPointResampler.h"
 #include "ScanPointAnalyser.h"
-#include "PoseEstimatorICP.h" 
-#include "PoseFuser.h" 
-#include "ScanMatcher2D.h" 
-#include "SlamFrontEnd.h" 
+#include "PoseEstimatorICP.h"
+#include "PoseFuser.h"
+#include "ScanMatcher2D.h"
+#include "SlamFrontEnd.h"
 
 class FrameworkCustomizer
 {
@@ -94,6 +94,7 @@ public:
   void customizeG();
   void customizeH();
   void customizeI();
+  void customizeMitchel(bool usePerpendicularDistance, bool usePointResampler);
 };
 
 #endif
