@@ -43,6 +43,7 @@
 #include "SlamFrontEnd.h"
 
 #include "CostFunctionEDM.h"
+#include "PoseOptimizerSDM.h"
 
 class FrameworkCustomizer
 {
@@ -64,7 +65,9 @@ class FrameworkCustomizer
   ScanPointResampler spres;
   ScanPointAnalyser spana;
 
+  // Mitchel乗算を用いるフレームワーク
   CostFunctionEDM cfuncEDM;
+  PoseOptimizerSDM poptSDM;
 
   PoseEstimatorICP poest;
   PoseFuser pfu;

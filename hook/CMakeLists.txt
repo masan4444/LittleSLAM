@@ -24,6 +24,7 @@ SET(hk_HDRS
     LoopDetectorSS.h
 
     CostFunctionEDM.h
+    PoseOptimizerSDM.h
 )
 
 SET(hk_SRCS
@@ -41,6 +42,7 @@ SET(hk_SRCS
     LoopDetectorSS.cpp
 
     CostFunctionEDM.cpp
+    PoseOptimizerSDM.cpp
 )
 
 include_directories(

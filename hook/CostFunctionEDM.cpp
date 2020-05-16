@@ -2,7 +2,7 @@
 
 using namespace std;
 
-// Mtichel乗算を適用した点間距離によるICPのコスト関数
+// Mitchel乗算を適用した点間距離によるICPのコスト関数
 double CostFunctionEDM::calValue(double tx, double ty, double th) {
   double a = DEG2RAD(th);
   double error=0;

@@ -229,7 +229,7 @@ void FrameworkCustomizer::customizeMitchel(bool usePerpendicularDistance, bool u
   DataAssociator *dass = &dassGT;                  // 格子テーブルによるデータ対応づけ
   CostFunction *cfunc = usePerpendicularDistance ?
     (CostFunction*)&cfuncEDM : (CostFunction*)&cfuncPD;
-  PoseOptimizer *popt = &poptSD;                   // 最急降下法による最適化
+  PoseOptimizer *popt = &poptSDM;                   // 最急降下法による最適化
   LoopDetector *lpd = &lpdDM;                      // ダミーのループ検出
 
   popt->setCostFunction(cfunc);
