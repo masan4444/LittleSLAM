@@ -16,6 +16,7 @@ if(UNIX)
 endif()
 
 SET(CMAKE_BUILD_TYPE "Release")
+set(CMAKE_CXX_FLAGS "-g")
 
 add_subdirectory(cui cui)
 add_subdirectory(framework framework)
