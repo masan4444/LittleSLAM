@@ -21,7 +21,7 @@ double PoseOptimizerSDM::optimizePose(Pose2D &initPose, Pose2D &estPose) {
     evold = ev;
 
     // 数値計算による偏微分
-    double dEtx = (cfunc->calValue(tx+dd, ty, th) - ev)/dd;
+    double dEtx = (cfunc->calValueMitchel(tx+dd, ty, th, 0) - ev)/dd;
     double dEty = (cfunc->calValue(tx, ty+dd, th) - ev)/dd;
     double dEth = (cfunc->calValue(tx, ty, th+da) - ev)/da;
 

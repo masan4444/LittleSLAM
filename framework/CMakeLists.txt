@@ -34,6 +34,7 @@ SET(fw_HDRS
     LoopDetector.h
 
     approximate.h
+    CostFunctionMitchel.h
 )
 
 SET(fw_SRCS

@@ -42,6 +42,8 @@
 #include "ScanMatcher2D.h"
 #include "SlamFrontEnd.h"
 
+#include "CostFunctionMitchel.h"
+#include "PoseOptimizerMitchel.h"
 #include "CostFunctionEDM.h"
 #include "PoseOptimizerSDM.h"
 
