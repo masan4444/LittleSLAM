@@ -14,6 +14,7 @@ public:
   MitchelDouble(double number);
   inline operator double() const { return number; };
   const double operator*(const MitchelDouble& rhs) const;
+  const double square() const;
   ~MitchelDouble();
 };
 

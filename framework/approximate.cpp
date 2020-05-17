@@ -38,7 +38,11 @@ double mitchelMultiply(double x, double y) {
 }
 
 MitchelDouble::MitchelDouble(double number) { this->number = number; }
+MitchelDouble::~MitchelDouble() {}
 
 const double MitchelDouble::operator*(const MitchelDouble& rhs) const {
   return mitchelMultiply(number, rhs.number);
+}
+const double MitchelDouble::square() const {
+  return mitchelMultiply(number, number);
 }
