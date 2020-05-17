@@ -7,7 +7,7 @@ find_package(Boost REQUIRED)
 find_package(Eigen3)
 IF(NOT EIGEN3_INCLUDE_DIR)
   set(EIGEN3_INCLUDE_DIR $ENV{EIGEN3_ROOT_DIR})
-ENDIF() 
+ENDIF()
 
 SET(fw_HDRS
     MyUtil.h
@@ -32,9 +32,11 @@ SET(fw_HDRS
     SlamFrontEnd.h
     SlamBackEnd.h
     LoopDetector.h
+
+    approximate.h
 )
 
-SET(fw_SRCS 
+SET(fw_SRCS
     MyUtil.cpp
     Pose2D.cpp
     Scan2D.cpp
@@ -51,6 +53,8 @@ SET(fw_SRCS
     SlamFrontEnd.cpp
     SlamBackEnd.cpp
     LoopDetector.cpp
+
+    approximate.cpp
 )
 
 include_directories(
@@ -63,4 +67,3 @@ link_directories(
 )
 
 ADD_LIBRARY(framework ${fw_SRCS} ${fw_HDRS})
-

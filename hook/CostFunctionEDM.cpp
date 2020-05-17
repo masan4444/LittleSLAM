@@ -1,4 +1,5 @@
 ﻿#include "CostFunctionEDM.h"
+#include "approximate.h"
 
 using namespace std;
 
