@@ -1,9 +1,9 @@
 ﻿#ifndef _COST_FUNCTION_EDM_H_
 #define _COST_FUNCTION_EDM_H_
 
-#include "CostFunctionMitchel.h"
+#include "CostFunction.h"
 
-class CostFunctionEDM : public CostFunctionMitchel
+class CostFunctionEDM : public CostFunction
 {
 public:
   CostFunctionEDM() {

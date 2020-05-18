@@ -29,7 +29,7 @@ double CostFunctionPD::calValue(double tx, double ty, double th) {
 
     if (rlp->type != LINE)                       // 直線上の点でなければ使わない
       continue;
- 
+
     double cx = clp->x;
     double cy = clp->y;
     double x = cos(a)*cx - sin(a)*cy + tx;       // clpを参照スキャンの座標系に変換
@@ -53,4 +53,7 @@ double CostFunctionPD::calValue(double tx, double ty, double th) {
   error *= 100;                                  // 評価値が小さくなりすぎないよう100かける。
 
   return(error);
+}
+double CostFunctionPD::calValueMitchel(double tx, double ty, double th, int type) {
+  CostFunctionPD::calValue(tx, ty, th);
 }

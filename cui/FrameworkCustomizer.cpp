@@ -228,7 +228,8 @@ void FrameworkCustomizer::customizeMitchel(bool usePerpendicularDistance, bool u
   RefScanMaker *rsm = &rsmLM;                      // 局所地図を参照スキャンとする
   DataAssociator *dass = &dassGT;                  // 格子テーブルによるデータ対応づけ
   CostFunction *cfunc = usePerpendicularDistance ?
-    (CostFunction*)&cfuncEDM : (CostFunction*)&cfuncPD;
+    (CostFunction*)(&cfuncPD) :
+    (CostFunction*)(&cfuncEDM);
   PoseOptimizer *popt = &poptSDM;                   // 最急降下法による最適化
   LoopDetector *lpd = &lpdDM;                      // ダミーのループ検出
 

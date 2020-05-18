@@ -1,10 +1,10 @@
 ﻿#ifndef _POSE_OPTIMIZER_SDM_H_
 #define _POSE_OPTIMIZER_SDM_H_
 
-#include "PoseOptimizerMitchel.h"
+#include "PoseOptimizer.h"
 
 // Mitchel乗算を適用して最急降下法でコスト関数を最小化する
-class PoseOptimizerSDM : public PoseOptimizerMitchel
+class PoseOptimizerSDM : public PoseOptimizer
 {
 public:
   PoseOptimizerSDM() {

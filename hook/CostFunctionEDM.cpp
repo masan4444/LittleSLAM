@@ -3,6 +3,8 @@
 
 using namespace std;
 
+typedef MitchelDouble mdouble;
+
 // 点間距離によるICPのコスト関数
 double CostFunctionEDM::calValue(double tx, double ty, double th) {
   double a = DEG2RAD(th);
@@ -53,10 +55,14 @@ double CostFunctionEDM::calValueMitchel(double tx, double ty, double th, int typ
 
     double cx = clp->x;
     double cy = clp->y;
-    double x = cos(a)*cx - sin(a)*cy + tx;       // clpを参照スキャンの座標系に変換
-    double y = sin(a)*cx + cos(a)*cy + ty;
+    double x = type != 2 ? cos(a)*cx - sin(a)*cy + tx :
+    mdouble(cos(a))*mdouble(cx) - mdouble(sin(a))*mdouble(cy) + tx;       // clpを参照スキャンの座標系に変換
+    double y = type != 2 ? sin(a)*cx + cos(a)*cy + ty :
+    mdouble(sin(a))*mdouble(cx) - mdouble(cos(a))*mdouble(cy) + ty;       // clpを参照スキャンの座標系に変換
 
-    double edis = (x - rlp->x)*(x - rlp->x) + (y - rlp->y)*(y - rlp->y);     // 点間距離
+    double edis = type == 0 ?
+    (x - rlp->x)*(x - rlp->x) + (y - rlp->y)*(y - rlp->y) :
+    mdouble(x - rlp->x).square() + mdouble(y - rlp->y).square();     // 点間距離
 
     if (edis <= evlimit*evlimit)
       ++pn;                                      // 誤差が小さい点の数

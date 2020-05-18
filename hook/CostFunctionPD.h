@@ -27,6 +27,7 @@ public:
   }
 
   virtual double calValue(double tx, double ty, double th);
+  virtual double calValueMitchel(double tx, double ty, double th, int type);
 };
 
 #endif

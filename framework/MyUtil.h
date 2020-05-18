@@ -16,6 +16,7 @@
 #define MY_UTIL_H_
 
 #include <cmath>
+#include <iostream>
 #include <Eigen/Core>
 #include <Eigen/Eigen>
 
@@ -55,4 +56,3 @@ public:
 };
 
 #endif
-
