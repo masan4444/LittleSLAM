@@ -13,7 +13,7 @@ double PoseOptimizerSDM::optimizePose(Pose2D &initPose, Pose2D &estPose) {
   double evmin = HUGE_VAL;                     // コストの最小値
   double evold = evmin;                        // 1つ前のコスト値。収束判定に使う
 
-  double ev = cfunc->calValueMitchel(tx, ty, th, 1);     // コスト計算
+  double ev = cfunc->calValue(tx, ty, th);     // コスト計算
   // double ev = 0;
   int nn=0;                                    // 繰り返し回数。確認用
   double kk=0.00001;                           // 最急降下法のステップ幅係数
@@ -22,9 +22,9 @@ double PoseOptimizerSDM::optimizePose(Pose2D &initPose, Pose2D &estPose) {
     evold = ev;
 
     // 数値計算による偏微分
-    double dEtx = (cfunc->calValueMitchel(tx+dd, ty, th, 1) - ev)/dd;
-    double dEty = (cfunc->calValueMitchel(tx, ty+dd, th, 1) - ev)/dd;
-    double dEth = (cfunc->calValueMitchel(tx, ty, th+da, 1) - ev)/da;
+    double dEtx = (cfunc->calValue(tx+dd, ty, th) - ev)/dd;
+    double dEty = (cfunc->calValue(tx, ty+dd, th) - ev)/dd;
+    double dEth = (cfunc->calValue(tx, ty, th+da) - ev)/da;
 
     // 微分係数にkkをかけてステップ幅にする
     double dx = -kk*dEtx;
@@ -32,14 +32,17 @@ double PoseOptimizerSDM::optimizePose(Pose2D &initPose, Pose2D &estPose) {
     double dth = -kk*dEth;
     tx += dx;  ty += dy;  th += dth;            // ステップ幅を加えて次の探索位置を決める
 
-    ev = cfunc->calValueMitchel(tx, ty, th, 1);           // その位置でコスト計算
+    ev = cfunc->calValue(tx, ty, th);           // その位置でコスト計算
 
     if (ev < evmin) {                           // evがこれまでの最小なら更新
       evmin = ev;
       txmin = tx;  tymin = ty;  thmin = th;
     }
 
-//    printf("nn=%d, ev=%g, evold=%g, abs(evold-ev)=%g\n", nn, ev, evold, abs(evold-ev));         // 確認用
+    writingFile << nn << "," << ev << "," << evold << "," << abs(evold - ev) << endl;
+
+    //    printf("nn=%d, ev=%g, evold=%g, abs(evold-ev)=%g\n", nn, ev, evold,
+    //    abs(evold-ev));         // 確認用
   }
 
   ++allN;

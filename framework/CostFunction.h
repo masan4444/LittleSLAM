@@ -55,7 +55,6 @@ public:
 ///////////
 
   virtual double calValue(double tx, double ty, double th) = 0;
-  virtual double calValueMitchel(double tx, double ty, double th, int type) = 0;
 };
 
 #endif

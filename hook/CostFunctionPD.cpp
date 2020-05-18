@@ -54,6 +54,3 @@ double CostFunctionPD::calValue(double tx, double ty, double th) {
 
   return(error);
 }
-double CostFunctionPD::calValueMitchel(double tx, double ty, double th, int type) {
-  CostFunctionPD::calValue(tx, ty, th);
-}

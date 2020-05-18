@@ -50,6 +50,3 @@ double CostFunctionED::calValue(double tx, double ty, double th) {
 
   return(error);
 }
-double CostFunctionED::calValueMitchel(double tx, double ty, double th, int type) {
-  CostFunctionED::calValue(tx, ty, th);
-}

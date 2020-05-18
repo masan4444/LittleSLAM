@@ -17,6 +17,7 @@
 
 #include <cmath>
 #include <iostream>
+#include <fstream>
 #include <Eigen/Core>
 #include <Eigen/Eigen>
 
@@ -32,6 +33,12 @@
 #define RAD2DEG(x) ((x)*180/M_PI)  // ラジアンから度
 
 typedef unsigned char uchar;
+
+#define outputFilePath "./result/"
+#define approximateType 1
+// type -> 0: 通常
+// type -> 1: 自乗のみMitchel乗算
+// type -> 2: すべてMitchel乗算
 
 //////////
 
