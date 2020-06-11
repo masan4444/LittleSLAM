@@ -14,7 +14,12 @@
 
 #include "SlamLauncher.h"
 
+std::ofstream writingFile;
+std::string outputFilename = outputFilePath + std::to_string(time(nullptr)) + ".csv";
+
 int main(int argc, char *argv[]) {
+  writingFile.open(outputFilename, std::ios::app);
+
   bool scanCheck=false;              // スキャン表示のみか
   bool odometryOnly=false;           // オドメトリによる地図構築か
   char *filename;                    // データファイル名
@@ -52,7 +57,7 @@ int main(int argc, char *argv[]) {
     printf("Error: invalid arguments.\n");
     return(1);
   }
-  
+
   printf("SlamLauncher: startN=%d, scanCheck=%d, odometryOnly=%d\n", startN, scanCheck, odometryOnly);
   printf("filename=%s\n", filename);
 
@@ -73,5 +78,6 @@ int main(int argc, char *argv[]) {
     sl.run();
   }
 
+  writingFile.close();
   return(0);
 }

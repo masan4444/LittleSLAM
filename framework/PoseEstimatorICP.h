@@ -25,13 +25,15 @@
 
 //////
 
+extern std::ofstream writingFile;
+
 class PoseEstimatorICP
 {
 private:
   const Scan2D *curScan;       // 現在スキャン
   size_t usedNum;              // ICPに使われた点数。LoopDetectorで信頼性チェックに使う
   double pnrate;               // 正しく対応づけされた点の比率
-  
+
   PoseOptimizer *popt;         // 最適化クラス
   DataAssociator *dass;        // データ対応づけクラス
 
@@ -56,7 +58,7 @@ public:
   void setDataAssociator(DataAssociator *d) {
     dass = d;
   }
-     
+
   double getPnrate() {
     return(pnrate);
   }
@@ -64,7 +66,7 @@ public:
   size_t getUsedNum() {
     return(usedNum);
   }
-  
+
   void setScanPair(const Scan2D *c, const Scan2D *r) {
     curScan = c;
     dass->setRefBase(r->lps);           // データ対応づけのために参照スキャン点を登録

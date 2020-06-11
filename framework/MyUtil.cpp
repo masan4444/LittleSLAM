@@ -64,7 +64,7 @@ Eigen::Matrix3d MyUtil::svdInverse(const Matrix3d &A) {
 
   MatrixXd eU = svd.matrixU();
   MatrixXd eV = svd.matrixV();
-  VectorXd eS = svd.singularValues();  
+  VectorXd eS = svd.singularValues();
 
   MatrixXd M1(m, n);
   for (size_t i=0; i<n; i++) {
@@ -74,12 +74,12 @@ Eigen::Matrix3d MyUtil::svdInverse(const Matrix3d &A) {
       M1(i,j) = eU(j,i)/eS[i];
     }
   }
-    
+
   Matrix3d IA;
   for (size_t i=0; i<n; i++) {
     for (size_t j=0; j<n; j++) {
       IA(i,j) = 0;
-      for (size_t k=0; k<n; k++) 
+      for (size_t k=0; k<n; k++)
         IA(i,j) += eV(i,k)*M1(k,j);
     }
   }
@@ -128,4 +128,3 @@ void MyUtil::calEigen2D( double (*mat)[2], double *vals, double *vec1, double *v
 */
 
 }
-

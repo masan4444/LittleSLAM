@@ -50,3 +50,10 @@ double CostFunctionED::calValue(double tx, double ty, double th) {
 
   return(error);
 }
+
+double CostFunctionED::calValueMitchel(double tx, double ty, double th) {
+  return CostFunctionED::calValue(tx, ty, th);
+}
+std::tuple<double, double, double> CostFunctionED::differential(double tx, double ty, double th) {
+  return {0, 0, 0};
+}

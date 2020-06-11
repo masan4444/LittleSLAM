@@ -35,10 +35,6 @@
 typedef unsigned char uchar;
 
 #define outputFilePath "./result/"
-#define approximateType 1
-// type -> 0: 通常
-// type -> 1: 自乗のみMitchel乗算
-// type -> 2: すべてMitchel乗算
 
 //////////
 

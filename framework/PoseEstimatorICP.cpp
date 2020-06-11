@@ -50,6 +50,7 @@ double PoseEstimatorICP::estimatePose(Pose2D &initPose, Pose2D &estPose){
 //    printf("dass.curLps.size=%lu, dass.refLps.size=%lu\n", dass->curLps.size(), dass->refLps.size());
 //    printf("mratio=%g\n", mratio);
 //    printf("i=%d: ev=%g, evold=%g\n", i, ev, evold);
+    writingFile << i << "," << poseMin.tx << "," << poseMin.ty << "," << poseMin.th << endl;
   }
 
   pnrate = popt->getPnrate();
@@ -59,6 +60,7 @@ double PoseEstimatorICP::estimatePose(Pose2D &initPose, Pose2D &estPose){
 
   printf("finalError=%g, pnrate=%g\n", evmin, pnrate);
   printf("estPose:  tx=%g, ty=%g, th=%g\n", pose.tx, pose.ty, pose.th);      // 確認用
+  writingFile << poseMin.tx << "," << poseMin.ty << "," << poseMin.th << endl;
 
   double t1 = 1000*tim.elapsed();
   printf("PoseEstimatorICP: t1=%g\n", t1);                 // 処理時間
