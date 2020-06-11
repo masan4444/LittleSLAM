@@ -9,7 +9,7 @@ extern std::ofstream writingFile;
 extern std::string outputFilename;
 
 
-// Mitchel乗算を適用して最急降下法でコスト関数を最小化する
+// Mitchell乗算を適用して最急降下法でコスト関数を最小化する
 class PoseOptimizerSDM : public PoseOptimizer
 {
 public:

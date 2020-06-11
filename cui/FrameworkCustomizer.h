@@ -65,7 +65,7 @@ class FrameworkCustomizer
   ScanPointResampler spres;
   ScanPointAnalyser spana;
 
-  // Mitchel乗算を用いるフレームワーク
+  // Mitchell乗算を用いるフレームワーク
   CostFunctionEDM cfuncEDM;
   PoseOptimizerSDM poptSDM;
 
@@ -101,7 +101,7 @@ public:
   void customizeG();
   void customizeH();
   void customizeI();
-  void customizeMitchel(bool usePerpendicularDistance, bool usePointResampler);
+  void customizeMitchell(bool usePerpendicularDistance, bool usePointResampler);
 };
 
 #endif

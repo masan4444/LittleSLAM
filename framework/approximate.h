@@ -3,19 +3,19 @@
 
 #include "MyUtil.h"
 
-extern void mitchelMultiply();
+extern void mitchellMultiply();
 
-class MitchelDouble
+class MitchellDouble
 {
 private:
   double number;
 
 public:
-  MitchelDouble(double number);
+  MitchellDouble(double number);
   inline operator double() const { return number; };
-  const double operator*(const MitchelDouble& rhs) const;
+  const double operator*(const MitchellDouble& rhs) const;
   const double square() const;
-  ~MitchelDouble();
+  ~MitchellDouble();
 };
 
 #endif

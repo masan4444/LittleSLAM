@@ -223,7 +223,7 @@ void FrameworkCustomizer::customizeI() {
 }
 
 // ミッチェル乗算を適用
-void FrameworkCustomizer::customizeMitchel(bool usePerpendicularDistance, bool usePointResampler) {
+void FrameworkCustomizer::customizeMitchell(bool usePerpendicularDistance, bool usePointResampler) {
   pcmap = &pcmapGT;                                // 格子テーブルで管理する点群地図
   RefScanMaker *rsm = &rsmLM;                      // 局所地図を参照スキャンとする
   DataAssociator *dass = &dassGT;                  // 格子テーブルによるデータ対応づけ

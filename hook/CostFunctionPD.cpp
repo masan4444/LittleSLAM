@@ -55,7 +55,7 @@ double CostFunctionPD::calValue(double tx, double ty, double th) {
   return(error);
 }
 
-double CostFunctionPD::calValueMitchel(double tx, double ty, double th) {
+double CostFunctionPD::calValueMitchell(double tx, double ty, double th) {
   return CostFunctionPD::calValue(tx, ty, th);
 }
 std::tuple<double, double, double> CostFunctionPD::differential(double tx, double ty, double th) {

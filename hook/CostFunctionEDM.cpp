@@ -3,7 +3,7 @@
 
 using namespace std;
 
-typedef MitchelDouble mdouble;
+typedef MitchellDouble mdouble;
 
 #define double1 double
 #define double2 double
@@ -53,8 +53,8 @@ double CostFunctionEDM::calValue(double tx, double ty, double th) {
 }
 
 
-// Mitchel乗算を適用した点間距離によるICPのコスト関数
-double CostFunctionEDM::calValueMitchel(double tx, double ty, double th) {
+// Mitchell乗算を適用した点間距離によるICPのコスト関数
+double CostFunctionEDM::calValueMitchell(double tx, double ty, double th) {
   return CostFunctionEDM::calValue(tx, ty, th);
 }
 

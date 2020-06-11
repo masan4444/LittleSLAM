@@ -2,7 +2,7 @@
 
 using namespace std;
 
-double mitchelMultiply(double x, double y) {
+double mitchellMultiply(double x, double y) {
   double xx, yy;
   double xxp, yyp;
   double er;
@@ -37,12 +37,12 @@ double mitchelMultiply(double x, double y) {
   return er;
 }
 
-MitchelDouble::MitchelDouble(double number) { this->number = number; }
-MitchelDouble::~MitchelDouble() {}
+MitchellDouble::MitchellDouble(double number) { this->number = number; }
+MitchellDouble::~MitchellDouble() {}
 
-const double MitchelDouble::operator*(const MitchelDouble& rhs) const {
-  return mitchelMultiply(number, rhs.number);
+const double MitchellDouble::operator*(const MitchellDouble& rhs) const {
+  return mitchellMultiply(number, rhs.number);
 }
-const double MitchelDouble::square() const {
-  return mitchelMultiply(number, number);
+const double MitchellDouble::square() const {
+  return mitchellMultiply(number, number);
 }

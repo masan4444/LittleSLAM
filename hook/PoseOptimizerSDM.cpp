@@ -13,7 +13,7 @@ double PoseOptimizerSDM::optimizePose(Pose2D &initPose, Pose2D &estPose) {
   double evmin = HUGE_VAL;                     // コストの最小値
   double evold = evmin;                        // 1つ前のコスト値。収束判定に使う
 
-  // double evMitchel = cfunc->calValueMitchel(tx, ty, th);     // コスト計算
+  // double evMitchell = cfunc->calValueMitchell(tx, ty, th);     // コスト計算
   double ev = cfunc->calValue(tx, ty, th);     // コスト計算
   // double ev = 0;
   int nn=0;                                    // 繰り返し回数。確認用
@@ -23,8 +23,8 @@ double PoseOptimizerSDM::optimizePose(Pose2D &initPose, Pose2D &estPose) {
     evold = ev;
 
     // 数値計算による偏微分
-    // double dEtx = (cfunc->calValueMitchel(tx+dd, ty, th) - evMitchel)/dd;
-    // double dEty = (cfunc->calValueMitchel(tx, ty+dd, th) - evMitchel)/dd;
+    // double dEtx = (cfunc->calValueMitchell(tx+dd, ty, th) - evMitchell)/dd;
+    // double dEty = (cfunc->calValueMitchell(tx, ty+dd, th) - evMitchell)/dd;
     // double dEth = (cfunc->calValue(tx, ty, th+da) - ev)/da;
     // 導関数による偏微分
     auto [dEtx, dEty, dEth] = cfunc->differential(tx, ty, th);

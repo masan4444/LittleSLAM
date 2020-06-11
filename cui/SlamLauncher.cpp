@@ -156,7 +156,7 @@ bool SlamLauncher::setFilename(char *filename) {
 void SlamLauncher::customizeFramework() {
   fcustom.setSlamFrontEnd(&sfront);
   fcustom.makeFramework();
-  fcustom.customizeMitchel(false, false);
+  fcustom.customizeMitchell(false, false);
   //  fcustom.customizeG();                         // 退化の対処をしない
   //  fcustom.customizeH();                         // 退化の対処をする
   //  fcustom.customizeI();                         // ループ閉じ込みをする
