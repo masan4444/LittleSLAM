@@ -60,7 +60,7 @@ double PoseEstimatorICP::estimatePose(Pose2D &initPose, Pose2D &estPose){
 
   printf("finalError=%g, pnrate=%g\n", evmin, pnrate);
   printf("estPose:  tx=%g, ty=%g, th=%g\n", pose.tx, pose.ty, pose.th);      // 確認用
-  writingFile << poseMin.tx << "," << poseMin.ty << "," << poseMin.th << endl;
+  // writingFile << poseMin.tx << "," << poseMin.ty << "," << poseMin.th << endl;
 
   double t1 = 1000*tim.elapsed();
   printf("PoseEstimatorICP: t1=%g\n", t1);                 // 処理時間

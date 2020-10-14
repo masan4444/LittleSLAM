@@ -56,7 +56,7 @@ double PoseOptimizerSDM::optimizePose(Pose2D &initPose, Pose2D &estPose) {
 //  printf("nn=%d, ev=%g\n", nn, ev);         // 確認用
 
   estPose.setVal(txmin, tymin, thmin);          // 最小値を与える解を保存
-  writingFile << "!,!," << txmin << "," << tymin << "," << thmin << endl;
+  // writingFile << "!,!," << txmin << "," << tymin << "," << thmin << endl;
 
   return(evmin);
 }
