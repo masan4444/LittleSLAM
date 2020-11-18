@@ -61,3 +61,6 @@ double CostFunctionPD::calValueMitchell(double tx, double ty, double th) {
 std::tuple<double, double, double> CostFunctionPD::differential(double tx, double ty, double th) {
   return {0, 0, 0};
 }
+std::tuple<double, double, double> CostFunctionPD::differentialMitchell(double tx, double ty, double th) {
+  return {0, 0, 0};
+}

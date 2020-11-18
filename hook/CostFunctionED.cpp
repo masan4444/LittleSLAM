@@ -57,3 +57,6 @@ double CostFunctionED::calValueMitchell(double tx, double ty, double th) {
 std::tuple<double, double, double> CostFunctionED::differential(double tx, double ty, double th) {
   return {0, 0, 0};
 }
+std::tuple<double, double, double> CostFunctionED::differentialMitchell(double tx, double ty, double th) {
+  return {0, 0, 0};
+}

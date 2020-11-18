@@ -58,6 +58,7 @@ public:
   virtual double calValue(double tx, double ty, double th) = 0;
   virtual double calValueMitchell(double tx, double ty, double th) = 0;
   virtual std::tuple<double, double, double> differential(double tx, double ty, double th) = 0;
+  virtual std::tuple<double, double, double> differentialMitchell(double tx, double ty, double th) = 0;
 };
 
 #endif
